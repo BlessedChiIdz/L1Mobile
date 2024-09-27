@@ -1,12 +1,16 @@
 import React, {useState} from 'react';
 import "./gridCellComps.css";
-const GridCellComp = () => {
-    const [clicks, setClicks] = useState(1)
+import {INews} from "../../structs/news";
+const GridCellComp = (prop:INews) => {
+
     return(
         <div className="gridCellComp">
-            <img src="/favicon.ico" style={{"width":"100%"}} />
-            <button onClick={()=>{setClicks(clicks+1)}}>
-                {clicks}
+            <img src={prop.imgSrc} style={{"width":"100%",height:"150px"}} />
+            <div>
+                {prop.text}
+            </div>
+            <button onClick={()=>{prop.updateClicks(prop.index)}}>
+                {prop.cliks}
             </button>
         </div>
     )
